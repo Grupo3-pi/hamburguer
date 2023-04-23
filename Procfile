@@ -1,0 +1,1 @@
+web: gunicorn hangar252.wsgi
