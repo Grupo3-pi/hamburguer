@@ -1,17 +1,22 @@
 {
-    "builds": [
-      {
-        "src": "hangar252/wsgi.py",
-        "use": "@vercel/python"
-      }
-    ],
-    "routes": [
-      { "src": "/(.*)", "dest": "hangar252/wsgi.py" }
-    ],
-    "env": {
-      "DJANGO_SETTINGS_MODULE": "hangar252.settings",
-      "SECRET_KEY": "django-insecure-#ac(u@dpqgni^hu!g9kv&b-5c3^s%&6oixeat^!_u26qpjbq#y",
-      "DEBUG": "false"
+  "version": 2,
+  "builds": [
+    {
+      "src": "hangar252/wsgi.py",
+      "use": "@vercel/python"
     }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "hangar252/wsgi.py" }
+  ],
+  "env": {
+    "DJANGO_SETTINGS_MODULE": "backend.settings",
+    "DATABASE_ENGINE": "django.db.backends.mysql",
+    "DATABASE_NAME": "cardapio_db",
+    "DATABASE_USER": "grupo3_ti_pi",
+    "DATABASE_PASSWORD": "Univesp_pi-g3",
+    "DATABASE_HOST": "cardapio-db.cicotqjevhcp.us-east-1.rds.amazonaws.com",
+    "DATABASE_PORT": "3306"
 
   }
+}
