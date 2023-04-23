@@ -1,27 +1,17 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "hangar252/wsgi.py",
-      "use": "@vercel/python",
-      "config": { "maxLambdaSize": "50mb", "runtime": "python3.9.13" }
-    },
-    {
-      "src": "build_files.sh",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "staticfiles_build"
+    "builds": [
+      {
+        "src": "hangar252/wsgi.py",
+        "use": "@vercel/python"
       }
+    ],
+    "routes": [
+      { "src": "/(.*)", "dest": "hangar252/wsgi.py" }
+    ],
+    "env": {
+      "DJANGO_SETTINGS_MODULE": "hangar252.settings",
+      "SECRET_KEY": "django-insecure-#ac(u@dpqgni^hu!g9kv&b-5c3^s%&6oixeat^!_u26qpjbq#y",
+      "DEBUG": "false"
     }
-  ],
-  "routes": [
-    {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "hangar252/wsgi.py"
-    }
-  ]
-}
+
+  }
