@@ -1,6 +1,16 @@
 from pathlib import Path
 import os
 import django_heroku
+import ssl
+
+
+# Caminho para o certificado CA
+# Este exemplo assume que o arquivo ca-cert.pem está na pasta raiz do projeto
+SSL_CA_CERT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'ca-cert.pem')
+
+
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -63,6 +73,7 @@ WSGI_APPLICATION = 'hangar252.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+ssl_context = ssl.create_default_context(cafile=SSL_CA_CERT)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
