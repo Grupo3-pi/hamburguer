@@ -71,6 +71,9 @@ DATABASES = {
         'PASSWORD': 'Univesp_pi-g3',
         'HOST': 'cardapio-db.cicotqjevhcp.us-east-1.rds.amazonaws.com',
         'PORT': '3306',
+        'OPTIONS': {
+            'sql_mode': 'strict_trans_tables',
+        },
     }
 }
 
